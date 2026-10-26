@@ -38,7 +38,7 @@ cask "uaa-cli" do
       "uaa-cli",
     ]
 
-  postflight do
+  postflight_steps do
     if OS.mac?
       Dir.glob("#{staged_path}/uaa*").each do |file|
         system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", file]
